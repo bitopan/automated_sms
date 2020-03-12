@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+employee_dth.csv
+data.txt
+.vscode/
+config.ini
