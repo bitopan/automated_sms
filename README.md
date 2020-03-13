@@ -34,7 +34,7 @@ Please note that you have to run the above command within the Python Virtual env
 
 Once the application is ready, to automate the <code>rq worker</code> you can create the service file systemd
 
-My rqworker.service file [Path: /etc/systemd/system/rqworker.service] looks like below:
+My rqworker.service file [Path: <code>/etc/systemd/system/rqworker.service</code>] looks like below:
 <pre><code>[Unit]
 Description=RQ Worker
 After=network.target
@@ -54,6 +54,16 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 </code></pre>
+
+>After creating the above file, you can simply run the rq worker as service.
+
+>To start the service
+
+<code>sudo service rqworker start</code>
+
+>To stop the service
+
+<code>sudo service rqworker stop</code>
 
 #### Guides on Python RQ
 https://python-rq.org/
