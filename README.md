@@ -1,4 +1,6 @@
-# SEND BIRTHDAY SMS With HTTP API
+# SEND AUTOMATED SMS With HTTP API AND PYTHON
+
+>This project was developed to automate the birthday sms to the employees
 
 ### Installation
 <pre><code>python -m venv venv
