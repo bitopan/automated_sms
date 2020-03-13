@@ -15,7 +15,7 @@ def make_queue():
     users = get_employees()
     for employee in users:
         print("Adding " + employee[0] + " to Message Queue")
-        q.enqueue(send_msg, employee[0], employee[1], employee[2])
+        #q.enqueue(send_msg, employee[0], employee[1], employee[2])
         #scheduler.enqueue_at(datetime.datetime.utcnow() + timedelta(minutes=1), send_msg) # Date time should be in UTC
 
     # with Connection():
