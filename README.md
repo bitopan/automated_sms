@@ -13,11 +13,13 @@
 </pre>
 
 #### Installation the App
-<pre><code>git clone https://github.com/bitopan/automated_sms.git
+```
+git clone https://github.com/bitopan/automated_sms.git
 cd automate_sms
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt</code></pre>
+pip install -r requirements.txt
+```
 
 ### Configuration
 <pre><code>cp config.example.ini config.ini</code></pre>
@@ -30,12 +32,13 @@ Modify the config.ini file as per your credentials
 >To execute the queued jobs, run rq worker
 <pre><code>rq worker</code></pre>
 
-Please note that you have to run the above command within the Python Virtual environment.
+>Please note that you have to run the above command within the Python Virtual environment.
 
-Once the application is ready, to automate the <code>rq worker</code> you can create the service file systemd
+>Once the application is ready, to automate the <code>rq worker</code> you can create the service file systemd
 
-My rqworker.service file [Path: <code>/etc/systemd/system/rqworker.service</code>] looks like below:
-<pre><code>[Unit]
+>My rqworker.service file [Path: <code>/etc/systemd/system/rqworker.service</code>] looks like below:
+```
+[Unit]
 Description=RQ Worker
 After=network.target
 
@@ -53,7 +56,7 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-</code></pre>
+```
 
 >After creating the above file, you can simply run the rq worker as service.
 
