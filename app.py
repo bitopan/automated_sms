@@ -14,4 +14,7 @@ def make_queue():
         q.enqueue(send_msg, employee[0], employee[1], employee[2])
 
 if __name__ == '__main__':
+    if sys.version_info < (3,6):
+        print("Sorry, at least Python 3.6.x requires")
+        sys.exit(1)
     make_queue()
