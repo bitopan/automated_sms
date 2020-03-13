@@ -9,17 +9,17 @@ import config as cfg
 
 def send_msg(user, dob, mobile):
     with open("data.txt", "a+") as myfile:
-        msg = "Hi " + str(user) + "!\nWish you a very Happy Birthday.\nRegards, down town hospital"
+        user = str(user)
+        message = cfg.SMS_MSG.format(user, "\n", "\n")
 
         payload = {
             'uname': cfg.SMS_UNAME,
             'pass': cfg.SMS_PASS,
             'send': cfg.SMS_SEND,
             'dest': str(mobile),
-            'msg': msg,
+            'msg': message,
             'priority': cfg.SMS_PRIORITY
         }
-
 
         try:
             r = requests.get(cfg.SMS_URL, params=payload)
@@ -27,11 +27,9 @@ def send_msg(user, dob, mobile):
             myfile.write(r.url + " at " + str(datetime.now()) + "\n")
         except requests.exceptions.HTTPError as e:
             print("Something went wrong! " + e.response.text)
-            #myfile.write(e.response.text + " at " + str(datetime.now()))
 
 
 def get_employees():
-    #dateparse = lambda x: pandas.datetime.strptime(x, '%d/%m/%Y')
     df = pandas.read_csv(cfg.EMPLOYEE_FILE)
 
     df[['MOBILE']] = df[['MOBILE']].astype(str)
@@ -44,8 +42,6 @@ def get_employees():
 
     df = df[is_active]
 
-
-
     users = []
     for i, j in df.iterrows():
         dob = j[1]
@@ -57,6 +53,5 @@ def get_employees():
                     user, dob, mobile = j[0], j[1], j[2]
                     users.append([user, dob, mobile])
         except:
-            print(i, j)
-    #print(users)
+            pass
     return users
