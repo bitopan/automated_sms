@@ -1,5 +1,5 @@
-# PYTHON AUTOMATED SMS
-## Send Automated SMS with HTTP API and Python Redis Queue (RQ)
+# PYTHON AUTOMATED SMS SENDER
+## Send Automated SMS with HTTP API and Python Using Redis Queue (RQ) & Pandas
 >This project was developed to automate the birthday sms to the employees
 
 ### Minimum Requirements
@@ -34,7 +34,7 @@ Modify the config.ini file as per your credentials
 
 >Please note that you have to run the above command within the Python Virtual environment.
 
->Once the application is ready, to automate the <code>rq worker</code> you can create the service file systemd
+>Once the application is ready, to automate the <code>rq worker</code> you can create the service file under systemd
 
 >My rqworker.service file [Path: <code>/etc/systemd/system/rqworker.service</code>] looks like below:
 ```
